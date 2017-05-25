@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Yum</title>
+  <title><%= controller.action_name %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700|Roboto+Condensed:300,400,700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700|Roboto+Condensed:300,400,700" rel="stylesheet" type="text/css">
 </head>
 <body>
-navigation bar
--->
+<!--navigation bar-->
 <nav class="navbar navbar-default">
 <div class="container">
   <!--group  Brand and toggle for better mobiledisplay -->
@@ -41,51 +40,10 @@ navigation bar
   </div>
 </div><!--EOF container -->
 </nav><!--EOF nav--> 
+    <%= yield %>
 <!--welcome section-->
-<section class="intro">
-    <div class="container">
-      <h1>Order Your Favourite Food and Groceries Online!</h1>
-      <div class="row search-row">
-        <div class="col-lg-4 col-sm-4">
-          <h1>Start Here</h1>
-        </div>
-        <div class="col-lg-8 col-sm-8">
-          <div class="row">
-            <div class="col-sm-3">
-              <select class="form-control" id="city">
-                <option>--City--</option>
-                <option>Nairobi</option>
-                <option>Mombasa</option>
-                <option>Nakuru</option>
-              </select>
-            </div>
-            <div class="col-sm-9">
-              <select class="form-control" id="nearby">
-                <option>-- Neighborhood --</option>
-                <option>Nairobi</option>
-                <option>Mombasa</option>
-                <option>Nakuru</option>
-              </select>
-            </div>
-          </div>
-        </div>
-      </div>
-   </div>
-</section>
 
-<%= yield %>
-
-<section>
-   <div class="container">
-    <h1>Hello, world!</h1>
- </div>
-</section>
 <!--footer -->
-<footer>
-  
-</footer>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
+<footer></footer>
 </body>
 </html>
