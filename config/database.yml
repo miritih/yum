@@ -6,9 +6,9 @@
 #
 default: &default
   adapter: postgresql
-  encoding: SQL_ASCII
-  username: ubuntu
-  password:
+  encoding: unicode
+  username: eric
+  password: technology
   pool: 5
 
 development:
