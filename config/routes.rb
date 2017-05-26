@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  seems_rateable
   resources :sellers
   devise_for :users
   get 'welcome/home'

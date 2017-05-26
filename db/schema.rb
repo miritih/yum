@@ -11,10 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170527082909) do
+ActiveRecord::Schema.define(version: 20170527121256602973) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "seems_rateable_rates", force: :cascade do |t|
+    t.integer  "rater_id"
+    t.integer  "rateable_id"
+    t.string   "rateable_type"
+    t.float    "stars",         null: false
+    t.string   "dimension"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "seems_rateable_rates", ["dimension"], name: "index_seems_rateable_rates_on_dimension", using: :btree
+  add_index "seems_rateable_rates", ["rateable_id", "rateable_type"], name: "index_seems_rateable_rates_on_rateable_id_and_rateable_type", using: :btree
+  add_index "seems_rateable_rates", ["rater_id"], name: "index_seems_rateable_rates_on_rater_id", using: :btree
 
   create_table "sellers", force: :cascade do |t|
     t.string   "name"
