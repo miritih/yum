@@ -16,6 +16,13 @@ ActiveRecord::Schema.define(version: 20170527121256602973) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "locations", force: :cascade do |t|
+    t.string   "name"
+    t.string   "postal_address"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
   create_table "seems_rateable_rates", force: :cascade do |t|
     t.integer  "rater_id"
     t.integer  "rateable_id"
@@ -34,6 +41,7 @@ ActiveRecord::Schema.define(version: 20170527121256602973) do
     t.string   "name"
     t.string   "image_url"
     t.text     "description"
+    t.integer  "location_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

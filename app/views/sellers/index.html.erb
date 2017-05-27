@@ -13,10 +13,9 @@
     <div class="panel-heading">Locations</div>
     <div class="panel-body">
     <ul>
-      <li>a</li>
-      <li>b</li>
-      <li>c</li>
-      <li>d</li>
+    <% locations.each do |location| %>
+      <li> <%=link_to "#{location.name}",location, remote: true %> </li>
+      <%end%>
     </ul>
     </div><!--eof panel-body  -->
   </div><!-- Eof panel -->
@@ -35,7 +34,9 @@
         <h5><%= link_to seller.name %></h5>
         <a class="btn btn-danger pull-right">View menu</a>
         <p><%= seller.description %></p>
-        <p>Rating:<span class="fa fa-tablet"></span> <%= rating_for seller%></p>
+        <p>Rating:
+        <%= fa_icon "star" %>
+        <%= rating_for seller%></p>
       </div>
     </div>
   </div>
