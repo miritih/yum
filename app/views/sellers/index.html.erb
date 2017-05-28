@@ -1,0 +1,68 @@
+<section>
+<div class="container">
+<!-- page header -->
+<div class="page-header">
+  <h1>List of available Restaurants</h1>
+</div><!-- EOf page heade -->
+
+<!-- page grids -->
+<div class="row">
+<!-- left col -->
+<div class="col-lg-3">
+  <div class="panel panel-info">
+    <div class="panel-heading">Locations</div>
+    <div class="panel-body">
+    <ul>
+      <li>a</li>
+      <li>b</li>
+      <li>c</li>
+      <li>d</li>
+    </ul>
+    </div><!--eof panel-body  -->
+  </div><!-- Eof panel -->
+</div><!-- Eof left-col -->
+
+<!-- middle col -->
+<div class="col-lg-6">
+<!-- <p id="notice"><%= notice %></p> -->
+<% @sellers.each do |seller| %>
+  <div class="well well-lg">
+    <div class="row">
+      <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+        <%= image_tag(seller.image_url,alt: seller.name,class: "img-responsive") %>
+      </div>
+      <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9">
+        <h5><%= link_to seller.name %></h5>
+        <a class="btn btn-danger pull-right">View menu</a>
+        <p><%= seller.description %></p>
+        <p>Rating:<span class="fa fa-tablet"></span> <%= rating_for seller %></p>
+      </div>
+    </div>
+  </div>
+<% end %>
+</div><!-- eof middle-col -->
+<!-- right col -->
+<div class="col-lg-3">
+<!-- panel order -->
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    Current Order
+  </div>
+  <div class="panel-body">
+    NO ITEMS IN YOUR ORDER  
+  </div>
+</div>
+<!-- panel contacts -->
+<div class="panel panel-danger">
+  <div class="panel-heading">
+    Need Help?
+  </div>
+  <div class="panel-body">
+  <p>call to order</p>
+    <h3><span class="glyphicon glyphicon-phone"></span>0729956363</h3>  
+  </div>
+</div>
+</div><!-- EOF right-col -->
+</div><!-- eof grid -->
+</div><!-- Eof container -->
+</section>
