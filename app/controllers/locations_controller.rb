@@ -2,7 +2,7 @@ class LocationsController < ApplicationController
   def show
    @location=Location.find(params[:id])
    @sellers=@location.sellers
-   render "sellers/index"
+   render :show
   end
 
   def new
