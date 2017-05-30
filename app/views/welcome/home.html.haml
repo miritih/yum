@@ -1,0 +1,19 @@
+%section.intro
+  .container
+    %h1 Order Your Favourite Food and Groceries Online!
+    .row.search-row
+      .col-lg-4.col-sm-4
+        %h1 Start Here
+      .col-lg-8.col-sm-8
+        .row
+          .col-sm-3
+            = select("location", "location_id",locations.collect{|p| [p.name, p.id]},{prompt: 'select location'},{class:"form-control"})
+          .col-sm-9
+            %select#nearby.form-control
+              %option -- Neighborhood --
+              %option Nairobi
+              %option Mombasa
+              %option Nakuru
+%section
+  .container
+/ #https://www.sitepoint.com/devise-authentication-in-depth/

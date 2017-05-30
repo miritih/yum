@@ -1,0 +1,14 @@
+- if !items.empty?
+  - items.each do |item|
+    .well.well-lg
+      .row
+        .col-xs-3.col-sm-3.col-md-3.col-lg-3
+          = image_tag(item.image_url,alt: item.name, class: "img-responsive")
+        .col-xs-9.col-sm-9.col-md-9.col-lg-9
+          %h5= item.name
+          %a.btn.btn-danger.pull-right Buy This
+          %p= item.description
+- else
+  .alert.alert-danger
+    %p
+      No menu items for this restaurant (#{@seller.name})

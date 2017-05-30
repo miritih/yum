@@ -1,0 +1,37 @@
+%section
+  .container
+    / page header
+    #location.page-header
+      %h1.text-center List of available Restaurants
+    / EOf page heade
+    / page grids
+    .row
+      / left col
+      .col-lg-3
+        =render partial: "shared/locations"
+      / Eof left-col
+      / middle col
+      #content.col-lg-6
+        / <p id="notice"><haml_loud> notice </haml_loud></p>
+        = render partial: "shared/show_sellers", locals: {sellers: @sellers}
+      / eof middle-col
+      / right col
+      .col-lg-3
+        / panel order
+        .panel.panel-primary
+          .panel-heading
+            Current Order
+          .panel-body
+            NO ITEMS IN YOUR ORDER
+        / panel contacts
+        .panel.panel-danger
+          .panel-heading
+            Need Help?
+          .panel-body
+            %p call to order
+            %h3
+              = fa_icon "phone"
+              0729956363
+      / EOF right-col
+    / eof grid
+  / Eof container

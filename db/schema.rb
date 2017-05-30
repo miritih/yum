@@ -16,6 +16,12 @@ ActiveRecord::Schema.define(version: 20170527121256602973) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "locations", force: :cascade do |t|
     t.string   "name"
     t.string   "postal_address"
@@ -31,6 +37,7 @@ ActiveRecord::Schema.define(version: 20170527121256602973) do
     t.text     "description"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.integer  "category_id"
   end
 
   create_table "seems_rateable_rates", force: :cascade do |t|
