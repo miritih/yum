@@ -8,12 +8,7 @@
         <div class="col-lg-8 col-sm-8">
           <div class="row">
             <div class="col-sm-3">
-              <select class="form-control" id="city">
-                <option>--City--</option>
-                <option>Nairobi</option>
-                <option>Mombasa</option>
-                <option>Nakuru</option>
-              </select>
+            <%= select("location", "location_id",locations.collect{|p| [p.name, p.id]},{prompt: 'select location'},{class:"form-control"})%>
             </div>
             <div class="col-sm-9">
               <select class="form-control" id="nearby">
@@ -23,7 +18,7 @@
                 <option>Nakuru</option>
               </select>
             </div>
-          </div>r
+          </div>
         </div>
       </div>
    </div>
