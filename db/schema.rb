@@ -23,6 +23,16 @@ ActiveRecord::Schema.define(version: 20170527121256602973) do
     t.datetime "updated_at",     null: false
   end
 
+  create_table "menu_items", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "seller_id"
+    t.decimal  "price",       precision: 8, scale: 2
+    t.string   "image_url"
+    t.text     "description"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
   create_table "seems_rateable_rates", force: :cascade do |t|
     t.integer  "rater_id"
     t.integer  "rateable_id"
