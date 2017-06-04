@@ -1,1 +1,2 @@
 $('#content').html('<%= j(render partial: "show", locals: {sellers: @sellers})%>');	
+$('#location').html('<h1 class="text-center">Showing Restaurants in <%= @location.name %> </h1>')

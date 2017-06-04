@@ -1,28 +1,7 @@
-.left-inner-addon {
-    position: relative;
-}
-.left-inner-addon input {
-    padding-left: 30px;    
-}
-.left-inner-addon i {
-    position: absolute;
-    padding: 10px 12px;
-    pointer-events: none;
-}
-.navbar-default .navbar {
-    background-color: #f8f8f8;
-    border-color: #e7e7e7
-}
-.navbar-default .navbar-brand {
-    color: #777
-}
-.navbar-default .navbar-brand:focus,
-.navbar-default .navbar-brand:hover {
-    color: #5e5e5e;
-    background-color: transparent
+.navbar-default{
+	background-color: orange;
 }
 
-.navbar-default .navbar-text {
-    color: #777
+.well{
+	margin-bottom:1px
 }
-
