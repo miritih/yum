@@ -1,0 +1,13 @@
+%p#notice= notice
+%p
+  %strong Name:
+  = @seller.name
+%p
+  %strong Image url:
+  = @seller.image_url
+%p
+  %strong Description:
+  = @seller.description
+= link_to 'Edit', edit_seller_path(@seller)
+|
+= link_to 'Back', sellers_path

@@ -1,0 +1,46 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title= controller.action_name
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    %link{:href => "https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700|Roboto+Condensed:300,400,700", :rel => "stylesheet", :type => "text/css"}/
+  %body
+    / navigation bar
+    %nav.navbar.navbar-default
+      .container
+        / group  Brand and toggle for better mobiledisplay
+        .navbar-header
+          %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#yum-header", "data-toggle" => "collapse"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          .navbar-brand YUM REPLICATED
+        / EOF navbar header
+        / Collect the nav links, forms, and other content for toggling
+        #yum-header.collapse.navbar-collapse
+          %form.navbar-form.navbar-right
+            .left-inner-addon
+              = fa_icon "search"
+              %input.form-control{:placeholder => "Search for a restaurant, cuisine or dish", :type => "text"}/
+          %ul.nav.navbar-nav.navbar-right
+            - if user_signed_in?
+              %li
+                %a{:href => "#"} Help
+              %li= link_to('Update Profile', edit_user_registration_path)
+              %li= link_to('Logout', destroy_user_session_path, :method => :delete)
+            - else
+              %li
+                %a{:href => "#"} Help
+              %li= link_to('Signup', new_user_registration_path)
+              %li= link_to('Login', new_user_session_path)
+      / EOF container
+    / EOF nav
+    = yield
+    / welcome section
+    / footer
+    %footer

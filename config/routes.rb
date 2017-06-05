@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  get 'menu_items/:id/restaurant' => 'menu_items#show', as: :menu
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   seems_rateable
   resources :sellers
+  resources :locations
   devise_for :users
   get 'welcome/home'
   
@@ -8,7 +11,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'welcome#home'
+  root 'sellers#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
