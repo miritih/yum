@@ -40,6 +40,21 @@ ActiveRecord::Schema.define(version: 20170527121256602973) do
     t.integer  "category_id"
   end
 
+  create_table "order_items", force: :cascade do |t|
+    t.integer  "order_id"
+    t.integer  "menu_item_id"
+    t.integer  "quantity"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "seems_rateable_rates", force: :cascade do |t|
     t.integer  "rater_id"
     t.integer  "rateable_id"
