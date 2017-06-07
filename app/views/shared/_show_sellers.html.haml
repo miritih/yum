@@ -15,4 +15,5 @@
 - else
   .alert.alert-danger
     %p
-      No Restaurants in this location (#{@location.name})
+      - if !location.empty?
+        No Restaurants in this location (#{@location.name})
