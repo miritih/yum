@@ -33,22 +33,58 @@
 
 <div class="container">
     <div id="page-content" class="row">
-        <div class="col-sm-8 page-content">
-            <div class="card">
-                <div class="row container">
-                    <div class="col-md-4">
+        <div class="col-sm-8">
+            <div class="row card">
+                    <div class="col-md-3 hidden-xs hidden-sm">
                         <h3><%= fa_icon "coffee" %> Cuisines</h3>
                         <ul>
-                            <% %>
-                            <li><a>lsd;sdls;ld</a></li>
-                            <li><a>lsd;sdls;ld</a></li>
+                            <% @categories.each do |category| %>
+                            <li>
+                                <%=fa_icon 'caret-right'%>
+                                <%= link_to category.name, '#cat'+category.id.to_s %></li>
+                            <% end %>
                         </ul>
                     </div>
-                    <div class="col-md-8"></div>
-                </div>
+                    <div class="col-md-9">
+                        <%if @categories.empty?%>
+                        <div class="alert alert-info">No updated menu for this restaurant </div>
+                        <% end%>
+                        <% @categories.each do |category|%>
+                           <div id="cat<% category.id.to_s%>" class="panel panel-default noborder">
+                              <div class="panel-heading">
+                                <h3><%= category.name %></h3>
+                            </div>
+                            <div class="panel-body">
+                            <ul class="food-menu">
+                                <!--EOF item category heading -->
+                            <% category.menu_items.each do |menu| %>
+                                <li>
+                                    <div class="col-sm-4 col-xm-3">
+                                        <%= image_tag(menu.image_url, alt: menu.name, class: "menu_item_img") %>
+                                    </div>
+                                        <div class="container-fluid">
+                                            <p class="name"><%= menu.name %></p>
+                                            <p class="info"><%= menu.description %></p>
+                                        </div>
+                                        <div class="pull-right">
+                                            <span class="pricenr"><%= menu.price%></span>
+                                            <div class="actions">
+                                                <a class="btn btn-info" title="#"><i class="fa fa-plus"></i></a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <hr>
+                            <% end %>
+                               </ul>
+                            </div>
+                            </div>
+                             <!--panel body{dispaly menu items-->
+                        <%end%>
+                        </div>
+                    </div>
+                    
             </div>
-        </div>
-        <div class="col-sm-3 page-sidebar col-thin-left">
+        <div class="col-sm-4">
             <div class="panel panel-danger">
                 <div class="panel-heading">Current Order</div>
                 <div class="panel-body">
@@ -57,4 +93,5 @@
             </div>
         </div>
     </div>
+  </div>
 </div>

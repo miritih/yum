@@ -4922,7 +4922,7 @@ ul.food-menu li {
 }
 
 ul.food-menu li+li {
-    border-top: 1px solid #f4f4f4
+    border-top: 0px solid #f4f4f4
 }
 
 ul.food-menu li .item {
@@ -4959,14 +4959,17 @@ ul.food-menu li .item .info {
     line-height: 1.4em
 }
 
-ul.food-menu li .item .pricenr {
+.pricenr {
     display: inline-block;
     font-size: 16px;
     line-height: 1.6em;
     padding: 4px 5px 0 0;
     border-bottom: 2px solid #ffa900
 }
-
+.menu_item_img{
+    width: 120px;
+    height: 100px;
+}
 body.slide-active {
     overflow-x: hidden
 }
@@ -5854,6 +5857,15 @@ body:last-child .blueimp-gallery>.slides>.slide>.video-content:not(.video-loadin
     padding-top: 20px;
     margin-bottom: 30px
 }
+.panel.noborder {
+    border: none;
+    box-shadow: none;
+    margin-left: -10px;
+}
 body {
     background-color: #edecec
+}
+
+.titlebox{
+   background-color: #edecec
 }
