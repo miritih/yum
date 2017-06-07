@@ -2,5 +2,6 @@
   .panel-heading Locations
   .panel-body
     %ul
-      - locations.each do |location|
-        %li= link_to "#{location.name}",location, remote: true
+      -if !locations.empty?
+        - locations.each do |location|
+          %li= link_to "#{location.name}",location, remote: true
