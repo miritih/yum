@@ -40,7 +40,8 @@
               %li= link_to('Login', new_user_session_path)
       / EOF container
     / EOF nav
-    = yield
+    #ajax-content
+      = yield
     / welcome section
     / footer
-    %footer
+  

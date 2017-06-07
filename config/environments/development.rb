@@ -10,9 +10,18 @@ Rails.application.configure do
   config.eager_load = false
 
   #use mailcatcher config
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_url_options = { :host =>'https://yum-ericmwenda.c9users.io' }
+  # config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {:address => "localhost", :port => 1025}
+  config.action_mailer.smtp_settings = {
+        address:              'smtp.gmail.com',
+        port:                  2587,
+        domain:               'gmail.com',
+        user_name:            'ericmwenda254@gmail.com',
+        password:             'Technology5',
+        authentication:       'plain',
+        enable_starttls_auto: true 
+    }
 
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = true

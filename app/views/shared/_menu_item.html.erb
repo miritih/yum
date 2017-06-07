@@ -1,9 +1,7 @@
 <div class="restaurant-banner hidden-xs hidden-sm">
     <div class="container">
-        
        <div class="row restaurant-banner-info">
-           
-            <div class="col-md-4 the-rest-info">
+           <div class="col-md-4 the-rest-info">
                <h3><%=  @seller.name %></h3>
                <div class="restaurant-rating">
                    <span>Rating</span>
@@ -19,7 +17,6 @@
            <div class="col-md-2 rest-banner-cash">
                <h4><i class="fa fa-clock-o"> 8 Am - 9 Pm</i></h4>
             </div>
-            
             <div class="col-md-2 rest-banner-status">
                 <h3><span class="label label-success">Open</span></h3>
             </div>
@@ -27,34 +24,5 @@
            <div class="col-md-4 restaurant-banner-image">
                <%= image_tag(@seller.image_url, alt: @seller.name, class: "img-responsive img-circle") %>
             </div>
-        </div> 
-    </div>
-</div>
-
-<div class="container">
-    <div id="page-content" class="row">
-        <div class="col-sm-8 page-content">
-            <div class="card">
-                <div class="row container">
-                    <div class="col-md-4">
-                        <h3><%= fa_icon "coffee" %> Cuisines</h3>
-                        <ul>
-                            <% %>
-                            <li><a>lsd;sdls;ld</a></li>
-                            <li><a>lsd;sdls;ld</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-8"></div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-3 page-sidebar col-thin-left">
-            <div class="panel panel-danger">
-                <div class="panel-heading">Current Order</div>
-                <div class="panel-body">
-                    
-                </div>
-            </div>
-        </div>
     </div>
 </div>
