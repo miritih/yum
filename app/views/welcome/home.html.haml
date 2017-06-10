@@ -27,7 +27,7 @@
               -@cities.each do|city|
                 -city.hoods.each do |hood|
                   %li
-                    =hood.name
+                    =link_to hood.name, hood_url(hood.id)
           .col-md-4
             %h3
               =fa_icon "cutlery"
@@ -35,7 +35,7 @@
             %ul
               -@sellers.each do|seller|
                 %li
-                  =seller.name
+                  =link_to seller.name, menu_url(seller)
       .col-md-3
         .panel.panel-danger
           .panel-heading

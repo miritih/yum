@@ -1,5 +1,4 @@
 $(document).ready(function(){
-
     $("#locsearch").chosen().change(function(e){
         $.ajax({
           type: "POST",
@@ -11,7 +10,7 @@ $(document).ready(function(){
             return false
           },
           error: function(data){
-          console.log(data)
+         // console.log(data)
             return false
           }
         });

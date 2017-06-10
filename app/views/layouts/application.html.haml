@@ -26,7 +26,7 @@
           %form.navbar-form.navbar-right
             .left-inner-addon
               = fa_icon "search"
-              %input.form-control{:placeholder => "Search for a restaurant, cuisine or dish", :type => "text"}/
+              %input.form-control{:placeholder => "Search for a restaurant, cuisine or dish", :type => "text"}
           %ul.nav.navbar-nav.navbar-right
             - if user_signed_in?
               %li= link_to('Home', root_url)

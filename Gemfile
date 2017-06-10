@@ -15,6 +15,7 @@ gem "font-awesome-rails"
 gem 'sass-rails', '~> 5.0'
 gem 'rails_admin', '~> 1.2'
 gem "cancancan"
+gem 'simple_form'
 gem 'html2haml'
 gem 'chosen-rails'
 # Use Uglifier as compressor for JavaScript assets

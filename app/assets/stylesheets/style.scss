@@ -1384,13 +1384,13 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 450px;
+    height: 350px;
     transition: all 400ms cubic-bezier(0.25, 0.1, 0.25, 1) 0s;
     -webkit-transition: all 400ms cubic-bezier(0.25, 0.1, 0.25, 1) 0s
 }
 .intro_ad{
 background-color:orange;
- height: 200px; 
+ height: 100px; 
 }
 
 .intro .container {
@@ -5882,3 +5882,15 @@ body {
 #panel .fa { margin-right:10px; }
 #panel table tr td { padding-left: 5px }
 #panel .table {margin-bottom: 0px; }
+
+.left-inner-addon {
+    position: relative;
+}
+.left-inner-addon input {
+    padding-left: 30px;    
+}
+.left-inner-addon i {
+    position: absolute;
+    padding: 10px 12px;
+    pointer-events: none;
+}
