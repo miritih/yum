@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :order_items
   get 'menu_items/:id/restaurant' => 'menu_items#show', as: :menu
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   seems_rateable
