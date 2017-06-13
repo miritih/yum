@@ -56,7 +56,7 @@
                             </div>
                             <div class="panel-body">
                             <ul class="food-menu">
-                                <!--EOF item category heading -->
+                                <!--EOF item category  -->
                             <% category.menu_items.each do |menu| %>
                                 <li>
                                     <div class="col-sm-4 col-xm-3">
@@ -69,6 +69,7 @@
                                         <div class="pull-right">
                                             <span class="pricenr"><%= menu.price%></span>
                                             <div class="actions">
+                                                <%= link_to 'buy', new_order_item_url(menu.id) %>
                                                 <a class="btn btn-info" title="#"><i class="fa fa-plus"></i></a>
                                             </div>
                                         </div>
@@ -85,10 +86,38 @@
                     
             </div>
         <div class="col-sm-4">
-            <div class="panel panel-danger">
+            <div class="panel inner-box-content panel-danger">
                 <div class="panel-heading">Current Order</div>
                 <div class="panel-body">
-                    
+                <!-- shopping list -->
+                    <ul class="basketList"> 
+                    <!-- shopping item -->
+                        <li class="basketItemRow">
+                            <div class="item">
+                                <!-- action buttons -->
+                                    <span class="actions pull-right"> 
+                                        <span class="price">Ksh 50</span>
+                                        <!-- button add -->
+                                        <a class="button yum add">
+                                            <span class="fa-stack">
+                                                <i class="fa fa-circle-o fa-stack-2x"></i>
+                                                <i class="fa fa-plus fa-stack-1x"></i>
+                                            </span>
+                                        </a>
+                                        <!-- button minus -->
+                                        <a class="button yum minus">
+                                            <span class="fa-stack">
+                                                <i class="fa fa-circle-o fa-stack-2x"></i>
+                                                <i class="fa fa-minus fa-stack-1x"></i>
+                                            </span>
+                                        </a>
+                                    </span>
+                                    <span class="quantity">1</span>
+                                    <span class="xer"> x </span>
+                                    <span class="name">Cheesy Chips</span>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
