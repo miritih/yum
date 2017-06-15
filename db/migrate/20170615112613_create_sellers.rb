@@ -4,7 +4,8 @@ class CreateSellers < ActiveRecord::Migration
       t.string :name
       t.string :image_url
       t.text :description
-      t.integer :location_id
+      t.integer :hood_id
+
       t.timestamps null: false
     end
   end

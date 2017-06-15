@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
   resources :order_items
   get 'menu_items/:id/restaurant' => 'menu_items#show', as: :menu
+  get 'neighborhood/:name/:id' => 'cities#show', as: :hood
+  
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   seems_rateable
   resources :sellers
-  resources :locations
+  resources :cities
   devise_for :users
   get 'welcome/home'
   
