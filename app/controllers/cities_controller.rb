@@ -1,4 +1,10 @@
 class CitiesController < ApplicationController
+    def create
+      @hood=Hood.find(params[:id])
+      @sellers=@hood.sellers
+      render partial: 'hoods/search'
+    end
+    
   def show
    @hood=Hood.find(params[:id])
    @sellers=@hood.sellers

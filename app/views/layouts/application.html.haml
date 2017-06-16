@@ -29,13 +29,11 @@
               %input.form-control{:placeholder => "Search for a restaurant, cuisine or dish", :type => "text"}/
           %ul.nav.navbar-nav.navbar-right
             - if user_signed_in?
-              %li
-                %a{:href => "#"} Help
+              %li= link_to('Home', root_url)
               %li= link_to('Update Profile', edit_user_registration_path)
               %li= link_to('Logout', destroy_user_session_path, :method => :delete)
             - else
-              %li
-                %a{:href => "#"} Help
+              %li= link_to('Home', root_url)
               %li= link_to('Signup', new_user_registration_path)
               %li= link_to('Login', new_user_session_path)
       / EOF container

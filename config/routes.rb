@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  get 'hoods/show'
+
   resources :order_items
   get 'menu_items/:id/restaurant' => 'menu_items#show', as: :menu
-  get 'neighborhood/:name/:id' => 'cities#show', as: :hood
+  get 'neighborhood/:id' => 'hoods#show', as: :hood
   
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   seems_rateable
@@ -14,7 +16,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'sellers#index'
+  root 'welcome#home'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

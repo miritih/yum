@@ -1,9 +1,12 @@
+
 %section
   .container
     / page header
     #location.page-header
       %h1
-        Popular Restaurants 
+        Restaurants in 
+        %span.text-danger 
+          =@hood.name
     / EOf page heade
     / page grids
     .row
