@@ -15,7 +15,10 @@
 //= require turbolinks
 //= require jquery
 //= require bootstrap-sprockets
+//= require chosen-jquery
 //= require_tree
 //= require seems_rateable
 //= require_directory ./rateable
+ 
+
  

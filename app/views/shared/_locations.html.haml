@@ -1,7 +1,0 @@
-.panel.panel-info
-  .panel-heading Locations
-  .panel-body
-    %ul
-      -if !locations.empty?
-        - locations.each do |location|
-          %li= link_to "#{location.name}",location, remote: true

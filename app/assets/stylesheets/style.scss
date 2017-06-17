@@ -1380,13 +1380,17 @@ body {
 
 .intro {
     width: 100%;
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8)), url('/static/img/pizza_image.jpg?9ea5603507d4');
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.9)), image-url('kfc_menu.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 450px;
+    height: 350px;
     transition: all 400ms cubic-bezier(0.25, 0.1, 0.25, 1) 0s;
     -webkit-transition: all 400ms cubic-bezier(0.25, 0.1, 0.25, 1) 0s
+}
+.intro_ad{
+background-color:orange;
+ height: 100px; 
 }
 
 .intro .container {
@@ -1423,6 +1427,9 @@ body {
 .content-search button {
     height: 44px
 }
+ .home-page{
+   margin-top: 100px;  
+ }
 
 .search-row {
     max-width: 800px;
@@ -5868,4 +5875,22 @@ body {
 
 .titlebox{
    background-color: #edecec
+}
+.panel-title .fa { margin-right: 10px; }
+.panel-title a { margin-right: 5px; }
+#panel { padding-top:0px; }
+#panel .fa { margin-right:10px; }
+#panel table tr td { padding-left: 5px }
+#panel .table {margin-bottom: 0px; }
+
+.left-inner-addon {
+    position: relative;
+}
+.left-inner-addon input {
+    padding-left: 30px;    
+}
+.left-inner-addon i {
+    position: absolute;
+    padding: 10px 12px;
+    pointer-events: none;
 }

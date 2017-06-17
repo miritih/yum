@@ -15,5 +15,6 @@
 - else
   .alert.alert-danger
     %p
-      - if !location.empty?
-        No Restaurants in this location (#{@location.name})
+      No Restaurants in this Neighborhood 
+      %b.text-uppercase.text-primary
+        #{@hood.name}

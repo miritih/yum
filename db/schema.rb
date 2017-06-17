@@ -23,11 +23,17 @@ ActiveRecord::Schema.define(version: 20170527121256602973) do
     t.integer  "seller_id"
   end
 
-  create_table "locations", force: :cascade do |t|
+  create_table "cities", force: :cascade do |t|
     t.string   "name"
-    t.string   "postal_address"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "hoods", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "city_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "menu_items", force: :cascade do |t|
@@ -74,7 +80,7 @@ ActiveRecord::Schema.define(version: 20170527121256602973) do
     t.string   "name"
     t.string   "image_url"
     t.text     "description"
-    t.integer  "location_id"
+    t.integer  "hood_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
