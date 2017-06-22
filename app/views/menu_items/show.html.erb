@@ -11,17 +11,30 @@
                  <%= rating_for @seller %>
                 </div>
                 <div>
-                    <span>Opening Hours</span>
+                    <span>Opening Hours</span></br>
+                     <i class="fa fa-clock-o">
+                       <%= @seller.opening_time.to_formatted_s(:time) %> - <%= @seller.closing_time.to_formatted_s(:time) %> &nbsp
+                   </i>
                 </div>
                  <span class="info food-type"><%= @seller.description %></span>
             </div>
             
            <div class="col-md-2 rest-banner-cash">
-               <h4><i class="fa fa-clock-o"> 8 Am - 9 Pm</i></h4>
+               <h4>
+                   <i class="fa fa-clock-o">
+                       <%= @seller.opening_time.to_formatted_s(:time) %> - <%= @seller.closing_time.to_formatted_s(:time) %> &nbsp
+                   </i>
+               </h4>
             </div>
             
             <div class="col-md-2 rest-banner-status">
-                <h3><span class="label label-success">Open</span></h3>
+                <h3>
+                    <% if (@seller.opening_time.to_formatted_s(:time).to_i .. @seller.closing_time.to_formatted_s(:time).to_i).include?(Time.now.to_formatted_s(:time).to_i) %>
+                    <span class="label label-success">Open</span>
+                    <%else%>
+                    <span class="label label-danger">Closed</span>
+                    <%end%>
+                </h3>
             </div>
             
            <div class="col-md-4 restaurant-banner-image">
