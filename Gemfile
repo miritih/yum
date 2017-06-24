@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use postgresql as the database for Active Record
@@ -18,6 +17,7 @@ gem "cancancan"
 gem 'simple_form'
 gem 'html2haml'
 gem 'chosen-rails'
+gem 'rails_12factor', group: :production
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -56,3 +56,4 @@ group :development do
   gem 'spring'
 end
 
+ruby "2.3.0"
