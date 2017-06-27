@@ -101,14 +101,15 @@
         <div class="col-sm-4">
             <div class="panel inner-box-content panel-danger">
                 <div class="panel-heading">Current Order</div>
-                <div class="panel-body">
+                <div class="panel-body basket">
                 <!-- shopping list -->
                     <ul class="basketList"> 
                     <!-- shopping item -->
                         <li class="basketItemRow">
                             <div class="item">
+                                <div class="msg">
                                 <!-- action buttons -->
-                                    <span class="actions pull-right"> 
+                                    <span class="actions"> 
                                         <span class="price">Ksh 50</span>
                                         <!-- button add -->
                                         <a class="button yum add">
@@ -128,9 +129,24 @@
                                     <span class="quantity">1</span>
                                     <span class="xer"> x </span>
                                     <span class="name">Cheesy Chips</span>
+                                </div>
                             </div>
                         </li>
+                        <!--totals-->
+                        <li class="total">
+                            <div class="item">
+                                <div class="msg">
+                                    <span class="actions">
+                                        <span class="price">
+                                            <span class="totalPrice">0 KSh</span>
+                                        </span>
+                                    </span> 
+                                    <span class="name">Total:</span>
+                                </div>
+                             </div>
+                        </li>
                     </ul>
+                    <a class="btn btn-success">Checkout <%= fa_icon "long-arrow-right" %></a>
                 </div>
             </div>
         </div>
