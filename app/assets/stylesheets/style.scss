@@ -492,7 +492,8 @@ ul.food-menu {
 }
 
 ul.food-menu li {
-    padding: 12px 0
+    padding: 10px 0;
+    border-bottom: 1px solid #f4f4f4;
 }
 
 ul.food-menu li+li {
@@ -501,7 +502,7 @@ ul.food-menu li+li {
 
 ul.food-menu li .item {
     overflow: hidden;
-    padding: 0 12px 0 0
+    padding: 0 6px 0 0
 }
 
 ul.food-menu li .actions {
@@ -529,13 +530,14 @@ ul.food-menu li .item .name .asterisk {
 }
 
 ul.food-menu li .item .info {
+    color: #464646;
     font-size: 12px;
     line-height: 1.4em
 }
 
-.menu_item_img{
+ul.food-menu li .item .menu_item_img{
   width:120px;  
-  height:130px;  
+  height:120px;  
 }
 
 .pricenr {
@@ -673,8 +675,13 @@ ul.food-menu li .item .info {
 .panel.noborder {
     border: none;
     box-shadow: none;
-    margin-left: -10px;
+    margin-bottom:0px;
+    margin-top:0px;
 }
+.panel.noborder .panel-heading{
+    height: 40px;
+}
+
 body {
     background-color: #edecec
 }
@@ -710,7 +717,10 @@ body {
 .search-row h1{
     color: red;
 }
-
+.breadcrumb{
+    background : #fff;
+    margin-bottom:0px
+}
 #page-content{
     padding:20px;
 }

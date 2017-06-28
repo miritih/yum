@@ -1,35 +1,36 @@
 $(document).on('turbolinks:load', function() {
-    $("#locsearch").change(function(e){
-        $.ajax({
-          type: "POST",
-          url: "/cities",
-          data: { id: $(this).val() },
-          success: function(data){
-          $("#ajax-content").html(data);
-           //console.log(data)
-            return false
-          },
-          error: function(data){
-         // console.log(data)
-            return false
-          }
-        });
+  
+  
+  $("#locsearch").change(function(e){
+    $.ajax({
+      type: "POST",
+      url: "/cities",
+      data: { id: $(this).val() },
+      success: function(data){
+        $("#ajax-content").html(data);
+        return false
+      },
+      error: function(data){
+        return false
+      }
     });
-    
-    $(".add").click(function(e){
-        
-        $.ajax({
-          type: "POST",
-          url: "/order_items",
-          data: {menu_id:$(this).attr('data-id')},
-          success: function(data){
-         location.reload();
-          },
-          error: function(data){
-         // console.log(data)
-            return false
-          }
-        });
+  });
+  
+  //increment quantity of item in cart   
+  
+  $(".yum").click(function(e){
+    minus=$(this).attr('data-action');
+    console.log(minus)
+    $.ajax({
+      type: "POST",
+      url: "/order_items",
+      data: {menu_id:$(this).attr('data-id'),minus:minus},
+      success: function(data){
+        Turbolinks.visit(location);
+      },
+      error: function(data){
+        return false
+      }
     });
-    
+  });
 });

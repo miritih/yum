@@ -1,3 +1,11 @@
+<div class="breadcrumb">
+  <div class="container">
+    <a href=""><%= fa_icon 'home'%> Home </a>>
+    <a href=""><%=link_to @seller.hood.name, hood_url(@seller.hood.id) %> </a>>
+    <a href=""><%=link_to @seller.name, menu_url(@seller)%> </a>
+
+  </div>
+</div>
 <div class="restaurant-banner hidden-xs hidden-sm">
     <div class="container">
        <div class="row restaurant-banner-info">
@@ -5,16 +13,17 @@
             <div class="col-md-4 the-rest-info">
                <h3><%=  @seller.name %></h3>
                <div class="restaurant-rating">
-                   <span>Rating</span>
-                 3.3
+                   <span class="text-danger">Rating</span>
+                 
                  <%= rating_for @seller %>
                 </div>
                 <div>
-                    <span>Opening Hours</span></br>
+                    <b class="text-danger">Opening Hours</b></br>
                      <i class="fa fa-clock-o">
                        <%= @seller.opening_time.to_formatted_s(:time) %> - <%= @seller.closing_time.to_formatted_s(:time) %> &nbsp
                    </i>
                 </div>
+                <b class="text-danger">Info</b></br>
                  <span class="info food-type"><%= @seller.description %></span>
             </div>
             
@@ -71,22 +80,23 @@
                                 <!--EOF item category  -->
                             <% category.menu_items.each do |menu| %>
                                 <li>
+                                  <div class="item">
                                     <div class="col-sm-4 col-xm-3">
-                                        <%= image_tag(menu.image_url, alt: menu.name, class: "menu_item_img") %>
+                                      <%= image_tag(menu.image_url, alt: menu.name, class: "menu_item_img") %>
                                     </div>
-                                        <div class="container-fluid">
-                                            <p class="name"><%= menu.name %></p>
+                                    <div class="container-fluid">
+                                            <p class="name text-capitalize"><%= menu.name %></p>
                                             <p class="info"><%= menu.description %></p>
-                                        </div>
-                                        <div class="pull-right">
-                                            <span class="pricenr"><%= menu.price%></span>
-                                            <div class="actions">
+                                    </div>
+                                    <div class="pull-right">
+                                        <span class="pricenr"><%= print_price(menu.price)%></span>
+                                        <div class="actions">
                                               
-                                                <%=button_to "Buy", order_items_path(menu_id: menu.id),class: "btn btn-info" %>
-                                            </div>
+                                        <%=button_to "Buy", order_items_path(menu_id: menu.id),class: "btn btn-info" %>
                                         </div>
-                                    </li>
-                                    <hr>
+                                    </div>
+                                  </div>
+                                </li>
                             <% end %>
                                </ul>
                             </div>
@@ -117,14 +127,14 @@
                                     <span class="actions"> 
                                         <span class="price"><%=print_price(order_item.subtotal)%></span>
                                         <!-- button add -->
-                                        <a data-id="<%=order_item.menu_item_id%>" class="button yum add">
+                                        <a data-id="<%=order_item.menu_item_id%>" data-action="add" class="button yum add">
                                             <span class="fa-stack">
                                                 <i class="fa fa-circle-o fa-stack-2x"></i>
                                                 <i class="fa fa-plus fa-stack-1x"></i>
                                             </span>
                                         </a>
                                         <!-- button minus -->
-                                        <a data-id="<%=order_item.menu_item_id%>"  class="button yum minus">
+                                        <a data-id="<%=order_item.menu_item_id%>" data-action="minus"  class="button yum minus">
                                             <span class="fa-stack">
                                                 <i class="fa fa-circle-o fa-stack-2x"></i>
                                                 <i class="fa fa-minus fa-stack-1x"></i>
