@@ -1,6 +1,6 @@
 <div class="restaurant-banner hidden-xs hidden-sm">
     <div class="container">
-        
+      
        <div class="row restaurant-banner-info">
            
             <div class="col-md-4 the-rest-info">
@@ -82,8 +82,7 @@
                                         <div class="pull-right">
                                             <span class="pricenr"><%= menu.price%></span>
                                             <div class="actions">
-                                                <%= link_to 'buy', new_order_item_url(menu.id) %>
-                                                <a class="btn btn-info" title="#"><i class="fa fa-plus"></i></a>
+                                                <%=link_to fa_icon("plus"), order_items_path(menu_id: menu.id),class: "btn btn-info" %>
                                             </div>
                                         </div>
                                     </li>
