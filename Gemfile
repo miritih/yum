@@ -12,7 +12,7 @@ gem 'seems_rateable'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem "font-awesome-rails"
 gem 'sass-rails', '~> 5.0'
-gem 'rails_admin', '~> 1.2'
+
 gem "cancancan"
 gem 'simple_form'
 gem 'html2haml'
