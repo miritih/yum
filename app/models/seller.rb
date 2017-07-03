@@ -3,4 +3,5 @@ class Seller < ActiveRecord::Base
 	 belongs_to :hood
 	 has_many :menu_items
 	 has_many :categories
+	 validates :opening_time,:closing_time, presence: true
 end

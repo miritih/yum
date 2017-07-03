@@ -1,6 +1,6 @@
 <div class="restaurant-banner hidden-xs hidden-sm">
     <div class="container">
-        
+      
        <div class="row restaurant-banner-info">
            
             <div class="col-md-4 the-rest-info">
@@ -11,17 +11,30 @@
                  <%= rating_for @seller %>
                 </div>
                 <div>
-                    <span>Opening Hours</span>
+                    <span>Opening Hours</span></br>
+                     <i class="fa fa-clock-o">
+                       <%= @seller.opening_time.to_formatted_s(:time) %> - <%= @seller.closing_time.to_formatted_s(:time) %> &nbsp
+                   </i>
                 </div>
                  <span class="info food-type"><%= @seller.description %></span>
             </div>
             
            <div class="col-md-2 rest-banner-cash">
-               <h4><i class="fa fa-clock-o"> 8 Am - 9 Pm</i></h4>
+               <h4>
+                   <i class="fa fa-clock-o">
+                       <%= @seller.opening_time.to_formatted_s(:time) %> - <%= @seller.closing_time.to_formatted_s(:time) %> &nbsp
+                   </i>
+               </h4>
             </div>
             
             <div class="col-md-2 rest-banner-status">
-                <h3><span class="label label-success">Open</span></h3>
+                <h3>
+                    <% if (@seller.opening_time.to_formatted_s(:time).to_i .. @seller.closing_time.to_formatted_s(:time).to_i).include?(Time.now.to_formatted_s(:time).to_i) %>
+                    <span class="label label-success">Open</span>
+                    <%else%>
+                    <span class="label label-danger">Closed</span>
+                    <%end%>
+                </h3>
             </div>
             
            <div class="col-md-4 restaurant-banner-image">
@@ -69,8 +82,7 @@
                                         <div class="pull-right">
                                             <span class="pricenr"><%= menu.price%></span>
                                             <div class="actions">
-                                                <%= link_to 'buy', new_order_item_url(menu.id) %>
-                                                <a class="btn btn-info" title="#"><i class="fa fa-plus"></i></a>
+                                                <%=link_to fa_icon("plus"), order_items_path(menu_id: menu.id),class: "btn btn-info" %>
                                             </div>
                                         </div>
                                     </li>
@@ -88,14 +100,15 @@
         <div class="col-sm-4">
             <div class="panel inner-box-content panel-danger">
                 <div class="panel-heading">Current Order</div>
-                <div class="panel-body">
+                <div class="panel-body basket">
                 <!-- shopping list -->
                     <ul class="basketList"> 
                     <!-- shopping item -->
                         <li class="basketItemRow">
                             <div class="item">
+                                <div class="msg">
                                 <!-- action buttons -->
-                                    <span class="actions pull-right"> 
+                                    <span class="actions"> 
                                         <span class="price">Ksh 50</span>
                                         <!-- button add -->
                                         <a class="button yum add">
@@ -115,9 +128,24 @@
                                     <span class="quantity">1</span>
                                     <span class="xer"> x </span>
                                     <span class="name">Cheesy Chips</span>
+                                </div>
                             </div>
                         </li>
+                        <!--totals-->
+                        <li class="total">
+                            <div class="item">
+                                <div class="msg">
+                                    <span class="actions">
+                                        <span class="price">
+                                            <span class="totalPrice">0 KSh</span>
+                                        </span>
+                                    </span> 
+                                    <span class="name">Total:</span>
+                                </div>
+                             </div>
+                        </li>
                     </ul>
+                    <a class="btn btn-success">Checkout <%= fa_icon "long-arrow-right" %></a>
                 </div>
             </div>
         </div>

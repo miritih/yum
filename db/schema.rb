@@ -81,8 +81,10 @@ ActiveRecord::Schema.define(version: 20170527121256602973) do
     t.string   "image_url"
     t.text     "description"
     t.integer  "hood_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.time     "opening_time"
+    t.time     "closing_time"
   end
 
   create_table "users", force: :cascade do |t|
