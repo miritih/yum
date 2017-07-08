@@ -26,8 +26,9 @@ class OrderItemsController < ApplicationController
   # POST /order_items
   # POST /order_items.json
   def create
-   @order_item = @order.order_items.new(quantity: 1,menu_item_id: params[:menu_id])
-   
+   @order_item = @order.order_items.find_or_initialize_by(menu_item_id: params[:menu_id])
+    @order_item.quantity += 1
+    
     respond_to do |format|
       if @order_item.save
         format.html { redirect_to request.referrer, notice: 'Order item was successfully Added to Cart.' }
@@ -64,14 +65,7 @@ class OrderItemsController < ApplicationController
   end
 
   private
-    #find and create a new item 
-    def load_order
-      @order = Order.find_or_initialize_by(id: session[:order_id], status: "unsubmitted")
-      if @order.new_record?
-        @order.save!
-        session[:order_id] = @order.id
-      end
-    end
+   
     # Use callbacks to share common setup or constraints between actions.
     def set_order_item
       @order_item = OrderItem.find(params[:id])

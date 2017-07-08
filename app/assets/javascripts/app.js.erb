@@ -15,4 +15,20 @@ $(document).on('ready page:load', function() {
           }
         });
     });
+    $(".minus").click(function(e){
+        
+        $.ajax({
+          type: "POST",
+          url: "/order_items",
+          data: {menu_id:$(this).attr('data-id')},
+          success: function(data){
+         location.reload();
+          },
+          error: function(data){
+         // console.log(data)
+            return false
+          }
+        });
+    });
+    
 });
