@@ -1,0 +1,16 @@
+#accordion.panel-group
+  - cities.each do |city|
+    .panel.panel-default
+      .panel-heading
+        %h4.panel-title
+          = fa_icon "globe"
+          %a{"data-parent" => "#accordion", "data-toggle" => "collapse", :href => "##{city.name+city.id.to_s}"}
+            = city.name
+      .panel-collapse.collapse{:id => "#{city.name+city.id.to_s}"}
+        #panel.panel-body
+          %table.table
+            - city.hoods.each do|hood|
+              %tr
+                %td
+                  = fa_icon "map-marker"
+                  = link_to hood.name, hood_url(hood.id)

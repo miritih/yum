@@ -82,7 +82,8 @@
                                         <div class="pull-right">
                                             <span class="pricenr"><%= menu.price%></span>
                                             <div class="actions">
-                                                <%=link_to fa_icon("plus"), order_items_path(menu_id: menu.id),class: "btn btn-info" %>
+                                              
+                                                <%=button_to "Buy", order_items_path(menu_id: menu.id),class: "btn btn-info" %>
                                             </div>
                                         </div>
                                     </li>
@@ -104,12 +105,15 @@
                 <!-- shopping list -->
                     <ul class="basketList"> 
                     <!-- shopping item -->
+                    
+                    <!--loop through order to display order items-->
+                    <%order_items.each do |order_item|%>
                         <li class="basketItemRow">
                             <div class="item">
                                 <div class="msg">
                                 <!-- action buttons -->
                                     <span class="actions"> 
-                                        <span class="price">Ksh 50</span>
+                                        <span class="price">Ksh <%=order_item.menu_item.price%></span>
                                         <!-- button add -->
                                         <a class="button yum add">
                                             <span class="fa-stack">
@@ -125,12 +129,13 @@
                                             </span>
                                         </a>
                                     </span>
-                                    <span class="quantity">1</span>
+                                    <span class="quantity"><%=order_item.quantity%></span>
                                     <span class="xer"> x </span>
-                                    <span class="name">Cheesy Chips</span>
+                                    <span class="name"><%=order_item.menu_item.name%></span>
                                 </div>
                             </div>
                         </li>
+                     <%end%>
                         <!--totals-->
                         <li class="total">
                             <div class="item">

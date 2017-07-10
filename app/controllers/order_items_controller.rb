@@ -1,6 +1,6 @@
 class OrderItemsController < ApplicationController
   before_action :set_order_item, only: [:show, :edit, :update, :destroy]
-  before_action :load_item, only: [:create]
+  before_action :load_order, only: [:create]
 
 
   # GET /order_items
@@ -26,14 +26,14 @@ class OrderItemsController < ApplicationController
   # POST /order_items
   # POST /order_items.json
   def create
-   @order_item = OrderItem.new(menu_id: params[:menu_id])
+   @order_item = @order.order_items.new(quantity: 1,menu_item_id: params[:menu_id])
    
     respond_to do |format|
       if @order_item.save
-        format.html { redirect_to @order_item, notice: 'Order item was successfully created.' }
+        format.html { redirect_to request.referrer, notice: 'Order item was successfully Added to Cart.' }
         format.json { render :show, status: :created, location: @order_item }
       else
-        format.html { render :new }
+        format.html { redirect_to request.referrer, notice: 'Problem adding product to cart.' }
         format.json { render json: @order_item.errors, status: :unprocessable_entity }
       end
     end
@@ -65,13 +65,12 @@ class OrderItemsController < ApplicationController
 
   private
     #find and create a new item 
-    def load_item
-    begin
-      @order = Order.find(session[:order_id])
-    rescue ActiveRecord::RecordNotFound
-      @order = Order.create(status: "unsubmitted")
-      session[:order_id] = @order.id
-    end
+    def load_order
+      @order = Order.find_or_initialize_by(id: session[:order_id], status: "unsubmitted")
+      if @order.new_record?
+        @order.save!
+        session[:order_id] = @order.id
+      end
     end
     # Use callbacks to share common setup or constraints between actions.
     def set_order_item
