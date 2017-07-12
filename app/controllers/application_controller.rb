@@ -10,7 +10,9 @@ private
   end
   
   def cart_total
-    @total=Order.find(session[:order_id]).total
+    if session[:order_id]
+      @total=Order.find(session[:order_id]).total
+    end
   end
   	 #find and create a new item 
   def load_order
@@ -20,9 +22,8 @@ private
       session[:order_id] = @order.id
     end
   end
-
-  	
   def order_items
+    
     if session[:order_id]
       @order_items=Order.find(session[:order_id]).order_items
     else

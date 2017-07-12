@@ -301,7 +301,7 @@ background-color:orange;
 }
 
 .info {
-    color: #999
+    color: #fff
 }
 
 .basket {
@@ -662,12 +662,14 @@ ul.food-menu li .item .info {
 .tab-content {
     padding: 20px
 }
+
 .card {
-    background: #FFF none repeat scroll 0 0;
+    background: #fff none repeat scroll 0 0;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-    padding-top: 20px;
-    margin-bottom: 30px
+    padding: 10px;
+    border-radius: 5px;
 }
+
 .panel.noborder {
     border: none;
     box-shadow: none;
@@ -707,4 +709,8 @@ body {
 }
 .search-row h1{
     color: red;
+}
+
+#page-content{
+    padding:20px;
 }

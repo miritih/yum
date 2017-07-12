@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+  get 'orders/destroy'
+
   get 'hoods/show'
 
   resources :order_items
+ 
   get 'menu_items/:id/restaurant' => 'menu_items#show', as: :menu
   get 'neighborhood/:id' => 'hoods#show', as: :hood
   
