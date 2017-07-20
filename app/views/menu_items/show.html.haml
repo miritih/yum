@@ -1,0 +1,100 @@
+.restaurant-banner.hidden-xs.hidden-sm
+  .container
+    .row.restaurant-banner-info
+      .col-md-4.the-rest-info
+        %h3= @seller.name
+        .restaurant-rating
+          %span Rating
+          3.3
+          \#{rating_for @seller}
+        %div
+          %span Opening Hours
+          %i.fa.fa-clock-o
+            = @seller.opening_time.to_formatted_s(:time)
+            \- #{@seller.closing_time.to_formatted_s(:time)} &amp;nbsp
+        %span.info.food-type= @seller.description
+      .col-md-2.rest-banner-cash
+        %h4
+          %i.fa.fa-clock-o
+            = @seller.opening_time.to_formatted_s(:time)
+            \- #{@seller.closing_time.to_formatted_s(:time)} &amp;nbsp
+      .col-md-2.rest-banner-status
+        %h3
+          - if (@seller.opening_time.to_formatted_s(:time).to_i .. @seller.closing_time.to_formatted_s(:time).to_i).include?(Time.now.to_formatted_s(:time).to_i)
+            %span.label.label-success Open
+          - else
+            %span.label.label-danger Closed
+      .col-md-4.restaurant-banner-image
+        = image_tag(@seller.image_url, alt: @seller.name, class: "img-responsive img-circle")
+.container
+  #page-content.row
+    .col-sm-8
+      .row.card
+        .col-md-3.hidden-xs.hidden-sm
+          %h3
+            = fa_icon "coffee"
+            Cuisines
+          %ul
+            - @categories.each do |category|
+              %li
+                = fa_icon 'caret-right'
+                = link_to category.name, '#cat'+category.id.to_s
+        .col-md-9
+          - if @categories.empty?
+            .alert.alert-info No updated menu for this restaurant
+          - @categories.each do |category|
+            .panel.panel-default.noborder{:id => "cat category.id.to_s"}
+              .panel-heading
+                %h3= category.name
+              .panel-body
+                %ul.food-menu
+                  / EOF item category
+                  - category.menu_items.each do |menu|
+                    %li
+                      .col-sm-4.col-xm-3
+                        = image_tag(menu.image_url, alt: menu.name, class: "menu_item_img")
+                      .container-fluid
+                        %p.name= menu.name
+                        %p.info= menu.description
+                      .pull-right
+                        %span.pricenr= menu.price
+                        .actions
+                          = link_to fa_icon("plus"), order_items_path(menu_id: menu.id),class: "btn btn-info"
+                    %hr/
+            / panel body{dispaly menu items
+    .col-sm-4
+      .panel.inner-box-content.panel-danger
+        .panel-heading Current Order
+        .panel-body.basket
+          / shopping list
+          %ul.basketList
+            / shopping item
+            %li.basketItemRow
+              .item
+                .msg
+                  / action buttons
+                  %span.actions
+                    %span.price Ksh 50
+                    / button add
+                    %a.button.yum.add
+                      %span.fa-stack
+                        %i.fa.fa-circle-o.fa-stack-2x
+                        %i.fa.fa-plus.fa-stack-1x
+                    / button minus
+                    %a.button.yum.minus
+                      %span.fa-stack
+                        %i.fa.fa-circle-o.fa-stack-2x
+                        %i.fa.fa-minus.fa-stack-1x
+                  %span.quantity 1
+                  %span.xer x
+                  %span.name Cheesy Chips
+            / totals
+            %li.total
+              .item
+                .msg
+                  %span.actions
+                    %span.price
+                      %span.totalPrice 0 KSh
+                  %span.name Total:
+          %a.btn.btn-success
+            Checkout #{fa_icon "long-arrow-right"}

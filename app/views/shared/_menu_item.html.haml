@@ -1,0 +1,20 @@
+.restaurant-banner.hidden-xs.hidden-sm
+  .container
+    .row.restaurant-banner-info
+      .col-md-4.the-rest-info
+        %h3= @seller.name
+        .restaurant-rating
+          %span Rating
+          3.3
+          \#{rating_for @seller}
+        %div
+          %span Opening Hours
+        %span.info.food-type= @seller.description
+      .col-md-2.rest-banner-cash
+        %h4
+          %i.fa.fa-clock-o 8 Am - 9 Pm
+      .col-md-2.rest-banner-status
+        %h3
+          %span.label.label-success Open
+      .col-md-4.restaurant-banner-image
+        = image_tag(@seller.image_url, alt: @seller.name, class: "img-responsive img-circle")

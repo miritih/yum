@@ -1,4 +1,4 @@
 class OrderItem < ActiveRecord::Base
 	belongs_to :order
-	has_many :menu_items
+    belongs_to :menu_item
 end
