@@ -7,7 +7,7 @@
 default: &default
   adapter: postgresql
   encoding: SQL_ASCII  #unicode
-  username: ubuntu
+  username: ENV['DATABASE_USER']
   password: 
   pool: 5
 

@@ -105,24 +105,24 @@
                 <!-- shopping list -->
                     <ul class="basketList"> 
                     <!-- shopping item -->
-                    
+                  
                     <!--loop through order to display order items-->
-                    <%order_items.each do |order_item|%>
+                    <% order_items.each do |order_item|%>
                         <li class="basketItemRow">
                             <div class="item">
                                 <div class="msg">
                                 <!-- action buttons -->
                                     <span class="actions"> 
-                                        <span class="price">Ksh <%=order_item.menu_item.price%></span>
+                                        <span class="price"><%=print_price(order_item.subtotal)%></span>
                                         <!-- button add -->
-                                        <a class="button yum add">
+                                        <a data-id="<%=order_item.menu_item_id%>" class="button yum add">
                                             <span class="fa-stack">
                                                 <i class="fa fa-circle-o fa-stack-2x"></i>
                                                 <i class="fa fa-plus fa-stack-1x"></i>
                                             </span>
                                         </a>
                                         <!-- button minus -->
-                                        <a class="button yum minus">
+                                        <a data-id="<%=order_item.menu_item_id%>"  class="button yum minus">
                                             <span class="fa-stack">
                                                 <i class="fa fa-circle-o fa-stack-2x"></i>
                                                 <i class="fa fa-minus fa-stack-1x"></i>
@@ -142,7 +142,7 @@
                                 <div class="msg">
                                     <span class="actions">
                                         <span class="price">
-                                            <span class="totalPrice">0 KSh</span>
+                                            <span class="totalPrice"><%= print_price(cart_total) %></span>
                                         </span>
                                     </span> 
                                     <span class="name">Total:</span>
