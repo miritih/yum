@@ -1,6 +1,5 @@
 <div class="restaurant-banner hidden-xs hidden-sm">
     <div class="container">
-      
        <div class="row restaurant-banner-info">
            
             <div class="col-md-4 the-rest-info">
@@ -100,7 +99,10 @@
             </div>
         <div class="col-sm-4">
             <div class="panel inner-box-content panel-danger">
-                <div class="panel-heading">Current Order</div>
+                <div class="panel-heading">Current Order
+                <%= link_to "Empty Cart", orders_destroy_path, class: "pull-right"%>
+                </div>
+                
                 <div class="panel-body basket">
                 <!-- shopping list -->
                     <ul class="basketList"> 
