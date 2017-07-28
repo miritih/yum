@@ -26,9 +26,13 @@ class OrderItemsController < ApplicationController
   # POST /order_items
   # POST /order_items.json
   def create
-   @order_item = @order.order_items.find_or_initialize_by(menu_item_id: params[:menu_id])
-    @order_item.quantity += 1
-    
+    @order_item = @order.order_items.find_or_initialize_by(menu_item_id: params[:menu_id])
+    if params[:minus]== 'minus'
+      @order_item.quantity -= 1
+      @order_item.destroy if @order_item.quantity.to_i == 0
+    else
+      @order_item.quantity += 1
+    end
     respond_to do |format|
       if @order_item.save
         format.html { redirect_to request.referrer, notice: 'Order item was successfully Added to Cart.' }
