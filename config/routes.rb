@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'orders/destroy'
 
   get 'hoods/show'
@@ -8,7 +9,7 @@ Rails.application.routes.draw do
   get 'menu_items/:id/restaurant' => 'menu_items#show', as: :menu
   get 'neighborhood/:id' => 'hoods#show', as: :hood
   
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  
   seems_rateable
   resources :sellers
   resources :cities
