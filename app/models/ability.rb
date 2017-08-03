@@ -2,6 +2,12 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+    user ||= User.new # guest user (not logged in)
+      if user.email == "ericmwenda5@gmail.com" # you can add any condition
+        can :manage, :all
+      end
+    # can :access, :rails_admin   # grant access to rails_admin
+    # can :dashboard   
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)
