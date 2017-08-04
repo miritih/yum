@@ -1,5 +1,14 @@
 %section.intro
   .container
+    -if notice
+      %i#notice{:data=> notice }
+      :javascript
+        var a = $('#notice').attr("data");
+        swal({
+          title: "Acess denied",
+          text: a,
+          type: "warning",
+        });
     .home-page
       %h1 Order Your Favourite Food and Groceries Online!
       .row.search-row 
