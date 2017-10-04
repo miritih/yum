@@ -1,6 +1,16 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+ ActionMailer::Base.smtp_settings = {
+  address: "smtp.gmail.com",
+  port: 587,
+  domain: 'https://yum-replicated.herokuapp.com',
+  authentication: :login,
+  user_name: ENV['GMAIL_USERNAME'],
+  password: ENV['GMAIL_PASSWORD'],
+  enable_starttls_auto: true
+ }
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
