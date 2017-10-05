@@ -37,7 +37,7 @@
             
             <div class="col-md-2 rest-banner-status">
                 <h3>
-                    <% if (@seller.opening_time.to_formatted_s(:time).to_i .. @seller.closing_time.to_formatted_s(:time).to_i).include?(Time.now.to_formatted_s(:time).to_i) %>
+                    <% if (@seller.opening_time.to_formatted_s(:time).to_i .. @seller.closing_time.to_formatted_s(:time).to_i).include?(Time.now.in_time_zone("Nairobi").to_formatted_s(:time).to_i) %>
                     <span class="label label-success">Open</span>
                     <%else%>
                     <span class="label label-danger">Closed</span>
