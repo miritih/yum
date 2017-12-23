@@ -60,7 +60,7 @@
 #     # password: "please use keys"
 #   }
 # Change these
-server '35.225.197.124', port: 80, roles: [:web, :app, :db], primary: true
+server '35.225.197.124', roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'git@github.com:mwenda-eric/yum.git'
 set :application,     'yum-replicated'

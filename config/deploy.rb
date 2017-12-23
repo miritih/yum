@@ -1,5 +1,5 @@
 # Change these
-server '35.225.197.124', port: 80, roles: [:web, :app, :db], primary: true
+server '35.225.197.124', roles: [:web, :app, :db], primary: true
 
 set :repo_url,        'git@github.com:mwenda-eric/yum.git'
 set :application,     'yum-replicated'
@@ -32,7 +32,7 @@ set :puma_init_active_record, true  # Change to false when not using ActiveRecor
 
 ## Linked Files & Directories (Default None):
 set :linked_files, %w{config/database.yml}
-#set :linked_dirs,  %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+set :linked_dirs,  %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 namespace :puma do
   desc 'Create Directories for Puma Pids and Socket'
